@@ -34,14 +34,14 @@ function Home() {
 
     .sanika-home-inner {
       width: 100%;
-      max-width: 1110px;
+      max-width: 1250px;
       min-height: calc(100vh - 70px);
       margin: 0 auto;
-      padding: 90px 0 70px;
+      padding: 80px 30px 70px;
       display: grid;
-      grid-template-columns: 1.4fr 0.8fr;
+      grid-template-columns: 1.4fr 0.9fr;
       align-items: center;
-      gap: 55px;
+      gap: 45px;
     }
 
     .sanika-home-content {
@@ -103,9 +103,9 @@ function Home() {
       font-family: monospace;
       font-size: 14px;
       transition:
-        background 0.2s,
-        color 0.2s,
-        border-color 0.2s;
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
     }
 
     .sanika-home-button-primary {
@@ -140,7 +140,7 @@ function Home() {
       font-family: monospace;
       font-size: 14px;
       text-decoration: none;
-      transition: color 0.2s;
+      transition: color 0.2s ease;
       cursor: pointer;
     }
 
@@ -153,18 +153,28 @@ function Home() {
       justify-content: center;
       align-items: center;
       min-width: 0;
+      width: 100%;
     }
 
+    /* Larger profile image */
     .sanika-home-image-frame {
-      width: 320px;
-      height: 320px;
+      width: 390px;
+      height: 390px;
       padding: 5px;
       border: 2px solid #fb923c;
-      border-radius: 50%;
+      border-radius: 80%;
       background: #181a1d;
-      box-shadow: 0 0 35px #fb923c18;
+      box-shadow: 0 0 40px #fb923c20;
       overflow: hidden;
       flex-shrink: 0;
+      transition:
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .sanika-home-image-frame:hover {
+      box-shadow: 0 0 55px #fb923c35;
+      transform: scale(1.02);
     }
 
     .sanika-home-image {
@@ -173,19 +183,35 @@ function Home() {
       display: block;
       object-fit: cover;
       object-position: center top;
-      border-radius: 50%;
+      border-radius: 80%;
     }
 
     @media (max-width: 1150px) {
       .sanika-home-inner {
         padding-left: 28px;
         padding-right: 28px;
-        gap: 35px;
+        gap: 30px;
       }
 
       .sanika-home-image-frame {
-        width: 290px;
-        height: 290px;
+        width: 330px;
+        height: 330px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .sanika-home-inner {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 25px;
+      }
+
+      .sanika-home-image-frame {
+        width: 280px;
+        height: 280px;
+      }
+
+      .sanika-home-name {
+        font-size: clamp(42px, 5.5vw, 62px);
       }
     }
 
@@ -193,9 +219,8 @@ function Home() {
       .sanika-home-inner {
         min-height: auto;
         grid-template-columns: 1fr;
-        gap: 40px;
-        padding-top: 65px;
-        padding-bottom: 60px;
+        gap: 38px;
+        padding: 60px 28px;
       }
 
       .sanika-home-image-wrapper {
@@ -203,8 +228,8 @@ function Home() {
       }
 
       .sanika-home-image-frame {
-        width: 250px;
-        height: 250px;
+        width: 300px;
+        height: 300px;
       }
 
       .sanika-home-content {
@@ -224,6 +249,7 @@ function Home() {
     @media (max-width: 480px) {
       .sanika-home-inner {
         padding: 45px 20px;
+        gap: 32px;
       }
 
       .sanika-home-role {
@@ -254,8 +280,8 @@ function Home() {
       }
 
       .sanika-home-image-frame {
-        width: 220px;
-        height: 220px;
+        width: 250px;
+        height: 250px;
       }
     }
   `;
@@ -266,6 +292,7 @@ function Home() {
 
       <section id="home" className="sanika-home">
         <div className="sanika-home-inner">
+
           <div className="sanika-home-content">
             <p className="sanika-home-role">
               ▪ Software Developer Aspirant · India
@@ -331,6 +358,7 @@ function Home() {
               />
             </div>
           </div>
+
         </div>
       </section>
     </>
